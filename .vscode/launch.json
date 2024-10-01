@@ -7,12 +7,25 @@
         {
             "type": "lldb",
             "request": "launch",
-            "name": "Wasm lldb",
+            "name": "Wasm add lldb",
             "program": "/home/codespace/.wasmtime/bin/wasmtime",
             "args": [
 			        "-D",
 			        "debug-info=y",
 			        "./add.wasm"
+			      ],
+
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Wasm sub lldb",
+            "program": "/home/codespace/.wasmtime/bin/wasmtime",
+            "args": [
+			        "-D",
+			        "debug-info=y",
+			        "./sub.wasm"
 			      ],
 
             "cwd": "${workspaceFolder}"
