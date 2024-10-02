@@ -1,8 +1,11 @@
 use wasmtime::*;
 
+// This is a simple example of using wasmtime to instantiate a two WebAssembly modules and call their functions
+
 fn main() -> wasmtime::Result<()> {
+    // Set up wasmtime engine
     let engine = Engine::default();
-    // Can also use .wasm file but the wasm file havwe multiple imports and for simplicity, we are using wat here
+    // Can also use .wasm file but the wasm file have multiple imports and for simplicity, we are using wat here
     let wat_add = r#"
         (module
             (type $t0 (func (param i32 i32) (result i32)))
@@ -12,7 +15,7 @@ fn main() -> wasmtime::Result<()> {
                 (local.get $p1))))
     "#;
 
-    // Can also use .wasm file but the wasm file havwe multiple imports and for simplicity, we are using wat here
+    // Can also use .wasm file but the wasm file have multiple imports and for simplicity, we are using wat here
     let wat_sub = r#"
         (module
             (type $t0 (func (param i32 i32) (result i32)))
@@ -29,6 +32,8 @@ fn main() -> wasmtime::Result<()> {
     // Loading via .wasm file
     // let module_add = Module::new(&engine, './add.wasm')?;
     // let module_sub = Module::new(&engine, './sub.wasm')?;
+    
+    // We are not trying host and guest functions here but it can be done by using Linker
     
     // Host functionality can be arbitrary Rust functions and is provided
     // to guests through a `Linker`.
