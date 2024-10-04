@@ -1,0 +1,7 @@
+[package]
+name = "wasm-add"
+
+[lib]
+crate-type = ["cdylib"]
+path = "add.rs"
+name = "add"
